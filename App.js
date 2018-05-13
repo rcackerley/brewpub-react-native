@@ -1,11 +1,7 @@
 import React from 'react';
-import HomeScreen from './components/screens/HomeScreen';
-import AccountScreen from './components/screens/AccountScreen';
-import MyShelfScreen from './components/screens/MyShelfScreen';
-import { createBottomTabNavigator } from 'react-navigation';
+import TabNavigation from './TabNavigation';
+import {Provider} from 'react-redux';
+import store from './store/index';
 
-export default createBottomTabNavigator({
-  Home: HomeScreen,
-  Account: AccountScreen,
-  MyShelf: MyShelfScreen,
-});
+export default App = () =>
+  <Provider store={store}><TabNavigation /></Provider>
