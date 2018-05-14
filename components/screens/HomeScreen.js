@@ -5,13 +5,13 @@ import {getHeroCards, getPairingCards} from '../../ajax/ajax';
 import {setBooks, setVisibleBooks} from '../../actions/actions';
 import {connect} from 'react-redux';
 import BookCard from '../pairings/BookCard';
+import HeroCards from '../heros/HeroCards';
 
 class HomeScreen extends React.Component {
   componentDidMount() {
     let {setBooks, setVisibleBooks} = this.props;
     getPairingCards()
     .then(pairings => {
-      console.log(pairings);
       setBooks(pairings);
       setVisibleBooks(pairings)
     })
@@ -24,6 +24,7 @@ class HomeScreen extends React.Component {
     let {books} = this.props;
     return (
       <ScrollView>
+        <HeroCards />
         <View style={{alignItems: 'center',
                       justifyContent: 'center'}}>
         {

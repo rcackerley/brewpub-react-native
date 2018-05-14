@@ -29,7 +29,9 @@ class BOTWScreen extends React.Component {
                 width: 10
               }}
               source={{uri: APIHost + '/' + beer.icon}} />
-              <Body style={{marginLeft: 30}}><Text>{beer.name} from {beer.brewery}</Text></Body>
+              <Body style={{marginLeft: 30}}>
+                <Text style={{fontFamily: 'quicksand-regular'}}>{beer.name} from {beer.brewery}</Text>
+              </Body>
             </ListItem>)}
         </List>
       </View>

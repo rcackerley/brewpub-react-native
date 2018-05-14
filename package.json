@@ -27,9 +27,12 @@
     "react-devtools": "^3.2.1",
     "react-native": "~0.55.2",
     "react-navigation": "^2.0.1",
-    "react-redux": "^5.0.7"
+    "react-redux": "^5.0.7",
+    "reactotron-react-native": "^1.14.0"
   },
   "rnpm": {
-   "assets": ["./assets/fonts"]
-}
+    "assets": [
+      "./assets/fonts"
+    ]
+  }
 }

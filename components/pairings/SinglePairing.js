@@ -3,7 +3,9 @@ import {View, Image} from 'react-native';
 import {APIHost} from '../../environment/config';
 
 let SinglePairing = ({pairing}) =>
-  <View>
+  <View style={{
+    marginLeft: 10
+  }}>
       <Image style={{
         width: 6,
         height: 23

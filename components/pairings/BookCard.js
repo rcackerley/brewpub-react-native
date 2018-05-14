@@ -22,7 +22,7 @@ class BookCard extends React.Component {
     return (
       <Card style={{
         width: '95%',
-        marginTop: 50,
+        marginTop: 40,
       }} key={book["pairings.id"]}>
         <CardItem>
             <Image style={{
@@ -35,12 +35,26 @@ class BookCard extends React.Component {
               top: -30
             }} source={{uri: APIHost + '/' + book.image}} />
             <Body style={{marginLeft: 20}}>
-              <Text>{book.title}</Text>
-              <Text>by {book.author}</Text>
-              <Text>{book.description}</Text>
-              {book.pairings && <BookPairings pairings={book.pairings} />}
+              <Text style={{
+                fontFamily: 'quicksand-bold',
+                fontSize: 17,
+                color: '#362c1e',
+                marginBottom: 5
+              }}>{book.title}</Text>
+              <Text style={{
+                fontFamily: 'quicksand-regular',
+                fontSize: 15,
+                color: '#362c1e',
+                marginBottom: 10
+              }}>by {book.author}</Text>
+              <Text style={{
+                fontFamily: 'quicksand-regular',
+                fontSize: 12,
+                color: '#362c1e'
+              }}>{book.description}</Text>
             </Body>
         </CardItem>
+        <CardItem>{book.pairings && <BookPairings pairings={book.pairings} />}</CardItem>
       </Card>
     )
   }
