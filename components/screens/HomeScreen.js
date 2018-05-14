@@ -1,10 +1,10 @@
 import React from 'react';
-import {View, Text, Image} from 'react-native';
+import {ScrollView, Text, Image, View} from 'react-native';
 import Logo from '../navigation/Logo';
-import {Card, CardItem, Body, Left} from 'native-base';
 import {getHeroCards, getPairingCards} from '../../ajax/ajax';
 import {setBooks, setVisibleBooks} from '../../actions/actions';
 import {connect} from 'react-redux';
+import BookCard from '../pairings/BookCard';
 
 class HomeScreen extends React.Component {
   componentDidMount() {
@@ -13,7 +13,7 @@ class HomeScreen extends React.Component {
     .then(pairings => {
       console.log(pairings);
       setBooks(pairings);
-      setVisibleBooks(pairings.slice(0,4))
+      setVisibleBooks(pairings)
     })
   }
   static navigationOptions = {
@@ -23,20 +23,14 @@ class HomeScreen extends React.Component {
   render() {
     let {books} = this.props;
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <ScrollView>
+        <View style={{alignItems: 'center',
+                      justifyContent: 'center'}}>
         {
-          books.map(book =>
-            <Card key={book["pairings.id"]}>
-              <CardItem>
-                  <Body>
-                    <Text>{book.title}</Text>
-                    <Text note>{book.author}</Text>
-                  </Body>
-              </CardItem>
-            </Card>
-          )
+          books.map((book, i) => <BookCard key={`combo-${book["pairings.id"]}`} book={book} />)
         }
-      </View>
+        </View>
+      </ScrollView>
     );
   }
 }

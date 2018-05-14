@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {getBeersOfTheWeek, getSpiritsOfTheWeek} from '../../ajax/ajax';
 import {setBeersOfTheWeek} from '../../actions/actions';
 import {List, ListItem, Thumbnail, Body} from 'native-base';
+import {APIHost} from '../../environment/config';
 
 class BOTWScreen extends React.Component {
   componentDidMount() {
@@ -25,10 +26,10 @@ class BOTWScreen extends React.Component {
             <ListItem key={`botw-${i}`}>
               <Image style={{
                 height: 40,
-                width: 25
+                width: 10
               }}
-              source={{uri: '../../' + beer.icon}} />
-              <Body><Text>{beer.name} from {beer.brewery}</Text></Body>
+              source={{uri: APIHost + '/' + beer.icon}} />
+              <Body style={{marginLeft: 30}}><Text>{beer.name} from {beer.brewery}</Text></Body>
             </ListItem>)}
         </List>
       </View>

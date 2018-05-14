@@ -57,7 +57,7 @@ export let getPairingCards = () =>
   .then(res => res.json())
 
 export let getAdditionalBeers = (type) =>
-    fetch('/similar-beers', {
+    fetch(APIHost + '/similar-beers', {
       method: 'POST',
       body: JSON.stringify({type: type}),
       headers: {
