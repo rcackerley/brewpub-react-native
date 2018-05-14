@@ -8,10 +8,6 @@ export let getSpiritsOfTheWeek = () =>
   fetch('/spirits')
   .then(res => res.json())
 
-export let getHeroPairings = () =>
-  fetch('/heros')
-  .then(res => res.json())
-
 export let createAccount = (user) =>
   fetch('/users', {
     body: JSON.stringify(user),
@@ -53,11 +49,11 @@ export let getUserProfile = (token) =>
   .then(res => res.status >= 400 ? Promise.reject('failed') : res.json())
 
 export let getHeroCards = () =>
-  fetch('/heros')
+  fetch(APIHost + '/heros')
   .then(res => res.json())
 
 export let getPairingCards = () =>
-  fetch('/pairings')
+  fetch(APIHost + '/pairings')
   .then(res => res.json())
 
 export let getAdditionalBeers = (type) =>

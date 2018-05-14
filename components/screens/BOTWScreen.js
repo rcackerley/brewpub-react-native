@@ -23,9 +23,12 @@ class BOTWScreen extends React.Component {
         <List>
           {featuredBeers.map((beer, i) =>
             <ListItem key={`botw-${i}`}>
-            <Thumbnail size={20}
-            source={{uri: '../../' + beer.icon}} />
-              <Body><Text>{beer.name}</Text></Body>
+              <Image style={{
+                height: 40,
+                width: 25
+              }}
+              source={{uri: '../../' + beer.icon}} />
+              <Body><Text>{beer.name} from {beer.brewery}</Text></Body>
             </ListItem>)}
         </List>
       </View>
