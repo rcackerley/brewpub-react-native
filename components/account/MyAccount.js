@@ -55,20 +55,22 @@ class MyAccount extends React.Component {
           marginBottom: 5,
           marginTop: 5,
         }}>password: *******</Text>
-        <Button
-          onPress={event => AsyncStorage.removeItem('token')
-          .then(res => clearToken())}
-          small
-          bordered dark
-          style={{
-            width: 100,
-            marginTop: 30,
-            marginLeft: 10,
-            justifyContent: 'center',
-            alignItems: 'center'
-          }}>
-          <Text>Logout</Text>
-        </Button>
+        <View>
+          <Button
+            onPress={event => AsyncStorage.removeItem('token')
+            .then(res => clearToken())}
+            small
+            bordered dark
+            style={{
+              width: 100,
+              marginTop: 30,
+              marginLeft: 10,
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}>
+            <Text>Logout</Text>
+          </Button>
+        </View>
       </View>
     )
   }

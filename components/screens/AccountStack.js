@@ -1,9 +1,11 @@
 import {createStackNavigator} from 'react-navigation';
 import AccountScreen from './AccountScreen';
+import CreateAccountScreen from './CreateAccountScreen';
 
 const AccountStack = createStackNavigator(
   {
     My_Account: AccountScreen,
+    Create_Account: CreateAccountScreen,
   },
   {
     navigationOptions: {
