@@ -69,7 +69,7 @@ class Login extends React.Component {
             onPress={(event) => {
               event.preventDefault();
               signIn({email: emailInput, password: passwordInput})
-              .then(token => {AsyncStorage.setItem('token', JSON.stringify(token.token)); return token})
+              .then(token => {AsyncStorage.setItem('token', token.token); return token})
               .then(token => setToken(token))
               .then(res => navigate('Home'))
               .catch(err => console.log(err))

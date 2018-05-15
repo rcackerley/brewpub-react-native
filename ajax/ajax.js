@@ -91,7 +91,7 @@ export let ratePairing = (rating, token) =>
   .then(res => res.json())
 
 export let getShelf = (token) =>
-  fetch('/my-shelf', {
+  fetch(APIHost + '/my-shelf', {
     method: 'GET',
     headers: {
       'content-type': 'application/json',
