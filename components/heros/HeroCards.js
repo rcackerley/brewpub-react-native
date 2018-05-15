@@ -2,8 +2,9 @@ import React from 'react';
 import {getHeroCards} from '../../ajax/ajax';
 import {setHeros} from '../../actions/actions';
 import {connect} from 'react-redux';
-import {ScrollView} from 'react-native';
+import {View} from 'react-native';
 import HeroCard from './HeroCard';
+import Carousel from 'react-native-snap-carousel';
 
 class HeroCards extends React.Component {
   componentDidMount() {
@@ -12,14 +13,23 @@ class HeroCards extends React.Component {
     .then(cards => setHeros(cards))
   }
 
-  render() {
-    let {cards} = this.props;
-    return (
-      <ScrollView horizontal={true}>
-        {cards.map(card => <HeroCard key={`hero-${card["pairings.id"]}`}card={card} />)}
-      </ScrollView>
-    )
-  }
+  _renderItem ({item, index}) {
+        return (
+            <HeroCard item={item} />
+        );
+    }
+
+    render () {
+      let {cards} = this.props;
+        return (
+            <Carousel
+              data={cards}
+              renderItem={this._renderItem}
+              sliderWidth={400}
+              itemWidth={400}
+            />
+        );
+    }
 }
 
 
