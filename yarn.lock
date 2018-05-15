@@ -5957,6 +5957,12 @@ react-native-branch@2.0.0-beta.3:
   version "2.0.0-beta.3"
   resolved "https://registry.yarnpkg.com/react-native-branch/-/react-native-branch-2.0.0-beta.3.tgz#2167af86bbc9f964bd45bd5f37684e5b54965e32"
 
+react-native-button@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/react-native-button/-/react-native-button-2.3.0.tgz#7d0a90095d415b0edf98a904556a7c4439646568"
+  dependencies:
+    prop-types "^15.5.10"
+
 react-native-dismiss-keyboard@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/react-native-dismiss-keyboard/-/react-native-dismiss-keyboard-1.0.0.tgz#32886242b3f2317e121f3aeb9b0a585e2b879b49"
@@ -6012,6 +6018,13 @@ react-native-maps@0.21.0:
     babel-plugin-module-resolver "^2.3.0"
     babel-preset-react-native "1.9.0"
 
+react-native-ratings@^5.3.0:
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/react-native-ratings/-/react-native-ratings-5.3.0.tgz#f496ac6ebe934e29d7e2cfe8359b6a812ec95599"
+  dependencies:
+    lodash "^4.17.4"
+    prop-types "^15.5.10"
+
 react-native-safe-area-view@^0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/react-native-safe-area-view/-/react-native-safe-area-view-0.7.0.tgz#38f5ab9368d6ef9e5d18ab64212938af3ec39421"
@@ -6044,6 +6057,14 @@ react-native-scripts@1.14.0:
     rimraf "^2.6.1"
     xdl "48.1.4"
 
+react-native-star-rating@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/react-native-star-rating/-/react-native-star-rating-1.0.9.tgz#b25ea19d4494cd1c7b14e931f99e92ddce3ef70d"
+  dependencies:
+    prop-types "^15.5.10"
+    react-native-button "^2.3.0"
+    react-native-vector-icons "^4.5.0"
+
 react-native-svg@6.2.2:
   version "6.2.2"
   resolved "https://registry.yarnpkg.com/react-native-svg/-/react-native-svg-6.2.2.tgz#5803cddce374a542b4468c38a2474fca32080685"
@@ -6067,6 +6088,14 @@ react-native-tab-view@~0.0.77:
 react-native-vector-icons@4.5.0, react-native-vector-icons@~4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-4.5.0.tgz#6b95619e64f62f05f579f74a01fe5640df95158b"
+  dependencies:
+    lodash "^4.0.0"
+    prop-types "^15.5.10"
+    yargs "^8.0.2"
+
+react-native-vector-icons@^4.5.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-4.6.0.tgz#e4014311ffa6de397d914ffc31b7097a874cc8d5"
   dependencies:
     lodash "^4.0.0"
     prop-types "^15.5.10"

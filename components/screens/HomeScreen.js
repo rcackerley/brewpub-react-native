@@ -4,7 +4,7 @@ import Logo from '../navigation/Logo';
 import {getHeroCards, getPairingCards} from '../../ajax/ajax';
 import {setBooks, setVisibleBooks} from '../../actions/actions';
 import {connect} from 'react-redux';
-import BookCard from '../pairings/BookCard';
+import SimilarBeersMiddleLayer from '../pairings/SimilarBeersMiddleLayer';
 import HeroCards from '../heros/HeroCards';
 
 class HomeScreen extends React.Component {
@@ -28,7 +28,7 @@ class HomeScreen extends React.Component {
         <View style={{alignItems: 'center',
                       justifyContent: 'center'}}>
         {
-          books.map((book, i) => <BookCard key={`combo-${book["pairings.id"]}`} book={book} />)
+          books.map((book, i) => <SimilarBeersMiddleLayer key={`combo-${book["pairings.id"]}`} book={book} />)
         }
         </View>
       </ScrollView>

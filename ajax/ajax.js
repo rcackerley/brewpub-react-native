@@ -9,7 +9,7 @@ export let getSpiritsOfTheWeek = () =>
   .then(res => res.json())
 
 export let createAccount = (user) =>
-  fetch('/users', {
+  fetch(APIHost + '/users', {
     body: JSON.stringify(user),
     method: 'POST',
     headers: {
@@ -80,7 +80,7 @@ export let getAdditionalPairingsByGenre = (genre) =>
   .then(res => res.json())
 
 export let ratePairing = (rating, token) =>
-  fetch('/ratings', {
+  fetch(APIHost + '/ratings', {
     method: 'POST',
     body: JSON.stringify(rating),
     headers: {

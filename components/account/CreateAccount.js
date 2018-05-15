@@ -1,28 +1,31 @@
 import React from 'react';
 import {View, Text, TextInput, AsyncStorage} from 'react-native';
 import {Button} from 'native-base';
-import {signIn} from  '../../ajax/ajax';
+import {createAccount} from  '../../ajax/ajax';
 import {connect} from 'react-redux';
 import {setToken} from '../../actions/actions';
 import { withNavigation } from 'react-navigation';
 
-class Login extends React.Component {
+class CreateAccount extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
         emailInput: null,
         passwordInput: null,
+        usernameInput: null,
       }
   }
 
   render() {
-    let {emailInput, passwordInput} = this.state;
+    let {emailInput, passwordInput, usernameInput} = this.state;
     let {setToken} = this.props;
     let {navigate} = this.props.navigation;
-    let handleUserName = (text) =>
+    let handleEmail = (text) =>
       this.setState({emailInput: text})
     let handlePassword = (text) =>
       this.setState({passwordInput: text})
+    let handleUsername = (text) =>
+      this.setState({usernameInput: text})
 
     return(
       <View style={{
@@ -37,7 +40,15 @@ class Login extends React.Component {
           color: '#362c1e',
           marginBottom: 5,
           marginTop: 30
-        }}>Login</Text>
+        }}>Create Account</Text>
+        <TextInput style={{
+          marginTop: 40,
+          width: '75%',
+          paddingBottom: 10,
+          borderBottomWidth: 1,
+          borderBottomColor: '#f2f2f2'
+        }} placeholder="Enter your username"
+          onChangeText={(text) => handleUsername(text)}/>
         <TextInput style={{
           marginTop: 40,
           width: '75%',
@@ -45,7 +56,7 @@ class Login extends React.Component {
           borderBottomWidth: 1,
           borderBottomColor: '#f2f2f2'
         }} placeholder="Enter your email address"
-          onChangeText={(text) => handleUserName(text)}/>
+          onChangeText={(text) => handleEmail(text)}/>
         <TextInput style={{
           marginTop: 40,
           width: '75%',
@@ -60,7 +71,7 @@ class Login extends React.Component {
         }}>
           <Button
             style={{
-              width: 100,
+              width: 120,
               marginTop: 30,
               backgroundColor: "#e28830",
               marginRight: 10,
@@ -68,7 +79,7 @@ class Login extends React.Component {
             }}
             onPress={(event) => {
               event.preventDefault();
-              signIn({email: emailInput, password: passwordInput})
+              createAccount({name: usernameInput, email: emailInput, password: passwordInput})
               .then(token => {AsyncStorage.setItem('token', token.token); return token})
               .then(token => setToken(token))
               .then(res => navigate('Home'))
@@ -78,22 +89,20 @@ class Login extends React.Component {
             <Text style={{
             color: 'white'
             }}>
-              Login</Text>
+              Create Account</Text>
           </Button>
           <Button
-            onPress={event =>
-            navigate('Create_Account')
-            }
+            onPress={event => this.props.navigation.goBack()}
             bordered dark
             style={{
-              width: 120,
+              width: 100,
               marginTop: 30,
               marginLeft: 10,
               justifyContent: 'center'
             }}>
             <Text style={{
             }}>
-              Create Account</Text>
+              Login</Text>
           </Button>
         </View>
       </View>
@@ -103,5 +112,5 @@ class Login extends React.Component {
 
 let mapStateToProps = state => state;
 let mapDispatchToProps = dispatch => ({setToken: (token) => dispatch(setToken(token)) });
-let LoginContainer = withNavigation(connect(mapStateToProps, mapDispatchToProps)(Login));
-export default LoginContainer;
+let CreateAccountContainer = withNavigation(connect(mapStateToProps, mapDispatchToProps)(CreateAccount));
+export default CreateAccountContainer;

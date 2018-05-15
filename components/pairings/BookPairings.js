@@ -7,8 +7,8 @@ let BookPairings = ({pairings}) =>
     flexDirection: 'row',
     marginTop: 5
   }}>
-    <Text style={{fontFamily: 'quicksand-regular'}}>Similar Pairings:</Text>  
-    {pairings.map((pairing, i) =>
+    <Text style={{fontFamily: 'quicksand-regular'}}>Similar Pairings:</Text>
+    {pairings.map((pairing) =>
       <SinglePairing pairing={pairing} key={`pair-${pairing.id}`} />
     )}
   </View>
