@@ -8,10 +8,6 @@ export let getSpiritsOfTheWeek = () =>
   fetch('/spirits')
   .then(res => res.json())
 
-export let getHeroPairings = () =>
-  fetch('/heros')
-  .then(res => res.json())
-
 export let createAccount = (user) =>
   fetch('/users', {
     body: JSON.stringify(user),
@@ -23,7 +19,7 @@ export let createAccount = (user) =>
   .then(res => res.json())
 
 export let signIn = (user) =>
-  fetch('/signin', {
+  fetch(APIHost + '/signin', {
     body: JSON.stringify(user),
     method: 'POST',
     headers: {
@@ -42,26 +38,29 @@ export let getProfileThumbnailImage = (token) =>
   })
   .then(res => res.status >= 400 ? Promise.reject('failed') : res.json())
 
-export let getUserProfile = (token) =>
-  fetch('/my-profile', {
-    body: JSON.stringify(token),
-    method: 'POST',
-    headers: {
-      'content-type': 'application/json'
-    }
-  })
-  .then(res => res.status >= 400 ? Promise.reject('failed') : res.json())
-
+export let getUserProfile = (token) => {
+  console.log(token);
+  return (
+    fetch(APIHost + '/my-profile', {
+      method: 'GET',
+      headers: {
+        authorization: token,
+        'content-type': 'application/json'
+      }
+    })
+    .then(res => res.status >= 400 ? Promise.reject('failed') : res.json())
+  )
+}
 export let getHeroCards = () =>
-  fetch('/heros')
+  fetch(APIHost + '/heros')
   .then(res => res.json())
 
 export let getPairingCards = () =>
-  fetch('/pairings')
+  fetch(APIHost + '/pairings')
   .then(res => res.json())
 
 export let getAdditionalBeers = (type) =>
-    fetch('/similar-beers', {
+    fetch(APIHost + '/similar-beers', {
       method: 'POST',
       body: JSON.stringify({type: type}),
       headers: {
@@ -92,7 +91,7 @@ export let ratePairing = (rating, token) =>
   .then(res => res.json())
 
 export let getShelf = (token) =>
-  fetch('/my-shelf', {
+  fetch(APIHost + '/my-shelf', {
     method: 'GET',
     headers: {
       'content-type': 'application/json',

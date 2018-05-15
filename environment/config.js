@@ -1,1 +1,1 @@
-export let APIHost = 'http://localhost:3000';
+export let APIHost = 'https://ancient-chamber-57403.herokuapp.com';

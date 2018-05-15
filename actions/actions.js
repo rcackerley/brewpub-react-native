@@ -63,6 +63,11 @@ export const setVisibleBooks = books =>
     payload: books
   })
 
+export const clearToken = () =>
+  ({
+    type: clearToken.toString(),
+  })
+
 setBeersOfTheWeek.toString = () => 'SET_BEERS_OF_THE_WEEK';
 setSpiritsOfTheWeek.toString = () => 'SET_SPIRITS_OF_THE_WEEK';
 setToken.toString = () => 'SET_TOKEN';
@@ -74,3 +79,4 @@ setPairings.toString = () => 'SET_PAIRINGS';
 setShelf.toString = () => 'SET_SHELF';
 toggleModal.toString = () => 'TOGGLE_MODAL';
 setVisibleBooks.toString = () => 'SET_VISIBLE_BOOKS';
+clearToken.toString = () => 'CLEAR_TOKEN';

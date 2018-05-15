@@ -1,5 +1,5 @@
 import {setBeersOfTheWeek, setSpiritsOfTheWeek, setToken, setUserImage, setUser,
-  setHeros, setBooks, setPairings, setShelf, toggleModal, setVisibleBooks} from '../actions/actions';
+  setHeros, setBooks, setPairings, setShelf, toggleModal, setVisibleBooks, clearToken} from '../actions/actions';
 
 const initialState = {
   featuredHeros: [],
@@ -49,6 +49,9 @@ const reducerRoutes = {
   }),
   [setVisibleBooks]: (state, action) => ({
     ...state, visibleBooks: action.payload
+  }),
+  [clearToken]: (state) => ({
+    ...state, token: null
   }),
   default: (state, action) => state
 }
