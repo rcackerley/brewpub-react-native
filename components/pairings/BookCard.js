@@ -11,8 +11,7 @@ import {connect} from 'react-redux';
 class BookCard extends React.Component {
 
   render() {
-    let {book, token, state} = this.props;
-    // console.log(state);
+    let {book, token} = this.props;
     return (
         <Card style={{
           width: '95%',
@@ -67,7 +66,6 @@ class BookCard extends React.Component {
   let mapDispatchToProps = dispatch => ({setPairings: (book) => dispatch(setPairings(book))})
   let mapStateToProps = state => ({
     token: state.token,
-    state: state
   })
   let BookCardContainer = connect(mapStateToProps, mapDispatchToProps)(BookCard)
 

@@ -12,7 +12,7 @@ import {setPairings} from '../../actions/actions';
 
 class HomeScreen extends React.Component {
   async componentDidMount() {
-    let {setVisibleBooks} = this.props;
+    let {setVisibleBooks, setBooks} = this.props;
     let books = await getPairingCards();
     let newBooksPromises = books.map(async book => {
       let beers = await getAdditionalBeers(book.type);
@@ -21,7 +21,6 @@ class HomeScreen extends React.Component {
       return newBook;
     })
     let newBooks = await Promise.all(newBooksPromises)
-    console.log(newBooks);
     setBooks(newBooks);
     setVisibleBooks(newBooks);
   }
@@ -48,7 +47,7 @@ class HomeScreen extends React.Component {
 }
 
 let mapDispatchToProps = dispatch => ({
-  setPairings: (book) => dispatch(setPairings(book)),
+  setBooks: (books) => dispatch(setBooks(books)),
   setVisibleBooks: (books) => dispatch(setVisibleBooks(books))
 })
 let mapStateToProps = state => ({books: state.visibleBooks})

@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import {withNavigation} from 'react-navigation';
 import {Text, View} from 'react-native';
 
-let BottleRatings = ({reviews, stars, white, orange, id, token}) => {
+let BottleRatings = ({reviews, stars, white, orange, id, token, navigation}) => {
   let filledStars = Math.round(stars / reviews);
   // let {navigation} = this.props;
   return (
@@ -29,7 +29,7 @@ let BottleRatings = ({reviews, stars, white, orange, id, token}) => {
             marginRight: -5
           }}
           selectedStar={value =>
-            token ? ratePairing({id: id, stars: value}, token) : navigation.navigate('Home') }
+            token ? ratePairing({id: id, stars: value}, token) : navigation.navigate('Account') }
         />
         <Text style={{
           marginLeft: 10,
