@@ -4,9 +4,15 @@ import {setHeros} from '../../actions/actions';
 import {connect} from 'react-redux';
 import {View} from 'react-native';
 import HeroCard from './HeroCard';
-import Carousel from 'react-native-snap-carousel';
+import Carousel, { Pagination } from 'react-native-snap-carousel';
 
 class HeroCards extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      activeSlide: 0
+    }
+  }
   componentDidMount() {
     let {setHeros} = this.props
     getHeroCards()
@@ -22,12 +28,16 @@ class HeroCards extends React.Component {
     render () {
       let {cards} = this.props;
         return (
+          <View>
             <Carousel
               data={cards}
               renderItem={this._renderItem}
               sliderWidth={400}
               itemWidth={400}
+              onSnapToItem={(index) => this.setState({ activeSlide: index }) }
             />
+            <Pagination dotsLength={cards.length} activeDotIndex={this.state.activeSlide} />
+          </View>
         );
     }
 }

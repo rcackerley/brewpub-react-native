@@ -10,10 +10,12 @@ let BottleRatings = ({reviews, stars, white, orange, id, token}) => {
   let filledStars = Math.round(stars / reviews);
   // let {navigation} = this.props;
   return (
-    <View style={{
-      flexDirection: 'row'
-    }}>
-      <StarRating
+      <View>
+      { orange ?
+        <View style={{
+          flexDirection: 'row'
+        }}>
+        <StarRating
           disabled={false}
           maxStars={5}
           rating={filledStars}
@@ -36,6 +38,36 @@ let BottleRatings = ({reviews, stars, white, orange, id, token}) => {
           fontSize: 12,
           color: '#362c1e',
         }}>{reviews} ratings</Text>
+        </View>
+        :
+        <View style={{
+          flexDirection: 'row'
+        }}>
+        <StarRating
+          disabled={false}
+          maxStars={5}
+          rating={filledStars}
+          emptyStar={{uri: APIHost + '/' + '/images/empty-bottle-' + white + '.png'}}
+          fullStar={{uri: APIHost + '/' + '/images/filled-bottle-' + white + '.png'}}
+          starSize={20}
+          buttonStyle={{
+            marginBottom: 10,
+          }}
+          starStyle={{
+            marginRight: -5
+          }}
+          selectedStar={value =>
+            token ? ratePairing({id: id, stars: value}, token) : navigation.navigate('Home') }
+        />
+        <Text style={{
+          marginLeft: 10,
+          fontFamily: 'quicksand-light',
+          marginTop: 3,
+          fontSize: 12,
+          color: white,
+        }}>{reviews} ratings</Text>
+        </View>
+      }
       </View>
   )
 }
