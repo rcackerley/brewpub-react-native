@@ -40,10 +40,10 @@ export const setBooks = pairings =>
     payload: pairings
   })
 
-export const setPairings = beers =>
+export const setPairings = book =>
   ({
     type: setPairings.toString(),
-    payload: beers
+    payload: book
   })
 
 export const setShelf = books =>

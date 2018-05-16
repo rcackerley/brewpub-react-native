@@ -2,16 +2,23 @@ import React from 'react';
 import {View, Text, Image} from 'react-native';
 import { LinearGradient } from 'expo';
 import {APIHost} from '../../environment/config';
+import BottleRatings from '../utility/Ratings';
+import {Button} from 'native-base';
 
+let colorStyles = {
+  wind: ['#42593a', '#4b5f3c', '#747b43'],
+  botany: ['#8e3611','#b14b18','#d55f1f'],
+  air: ['#454859','#687088','#8997b5']
+}
 let HeroCard = ({item}) =>
   <View>
     <LinearGradient style={{
       width: '100%',
-      height: 150,
+      height: 225,
       flexDirection: 'row',
-      marginBottom: 50,
+      marginBottom: 0,
       paddingLeft: 15
-    }} colors={['#42593a', '#4b5f3c', '#747b43']}>
+    }} colors={colorStyles[item.class]}>
       <Image style={{
         width: 100,
         height: 157,
@@ -36,9 +43,28 @@ let HeroCard = ({item}) =>
           fontSize: 15,
           color: 'white',
           marginBottom: 10
-        }}>by {item.author}</Text>
-        <BottleRatings id={book["pairings.id"]} reviews={book.reviews} stars={book.stars}
-          white={'white'} token={token} />
+        }}>& {item.name}</Text>
+        <BottleRatings id={item["pairings.id"]} reviews={item.reviews} stars={item.stars}
+          white={'white'}/>
+          <Text style={{
+            fontFamily: 'quicksand-regular',
+            fontSize: 12,
+            color: 'white',
+            marginBottom: 10,
+            width: 220
+          }}>{item.description}</Text>
+        <Button small style={{
+          width: 120,
+          marginTop: 5,
+          backgroundColor: "white",
+          marginRight: 10,
+          justifyContent: 'center'
+        }}>
+          <Text style={{
+            fontSize: 15,
+            color: '#362c1e',
+          }}>View Pairing</Text>
+        </Button>
       </View>
     </LinearGradient>
   </View>

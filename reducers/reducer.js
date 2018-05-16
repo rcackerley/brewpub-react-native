@@ -39,7 +39,7 @@ const reducerRoutes = {
     ...state, books: action.payload
   }),
   [setPairings]: (state, action) => ({
-    ...state, books: state.books.filter(book => book.title !== action.payload.title).concat([action.payload])
+    ...state, books: [...state.books].concat([action.payload])
   }),
   [setShelf]: (state, action) => ({
     ...state, shelf: action.payload

@@ -9,8 +9,9 @@ class SimilarBeersMiddleLayer extends React.Component {
     let { book, setPairings } = this.props;
     getAdditionalBeers(book.type)
     .then(beers => {
-      book.pairings = beers;
-      return setPairings(book)})
+      let newBook = Object.assign({}, book);
+      newBook.pairings = beers;
+      return setPairings(newBook)})
   }
   render () {
     let {book, token} = this.props;
