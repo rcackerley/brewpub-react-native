@@ -14,13 +14,14 @@ const TabNavigation = createBottomTabNavigator({
   },
   {
     navigationOptions: ({ navigation }) => ({
+      
       tabBarIcon: ({ focused, tintColor }) => {
         const { routeName } = navigation.state;
         let iconName;
         if (routeName === 'Home') {
           iconName = `ios-book${focused ? '' : '-outline'}`;
         } else if (routeName === 'MyShelf') {
-          iconName = `ios-beer${focused ? '' : '-outline'}`;
+          iconName = `ios-heart${focused ? '' : '-outline'}`;
         } else if (routeName === 'Account') {
           iconName = `ios-person${focused ? '' : '-outline'}`;
         } else if (routeName === 'Beers_of_the_Week') {
