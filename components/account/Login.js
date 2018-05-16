@@ -5,6 +5,7 @@ import {signIn} from  '../../ajax/ajax';
 import {connect} from 'react-redux';
 import {setToken} from '../../actions/actions';
 import { withNavigation } from 'react-navigation';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 class Login extends React.Component {
   constructor(props) {
@@ -27,7 +28,6 @@ class Login extends React.Component {
     return(
       <View style={{
         paddingLeft: 10,
-        backgroundColor: 'white',
         height: '100%',
         alignItems: 'center'
       }}>
@@ -38,23 +38,35 @@ class Login extends React.Component {
           marginBottom: 5,
           marginTop: 30
         }}>Login</Text>
-        <TextInput style={{
+        <View style={{
+          flexDirection: 'row',
           marginTop: 40,
-          width: '75%',
-          paddingBottom: 10,
-          borderBottomWidth: 1,
-          borderBottomColor: '#f2f2f2'
-        }} placeholder="Enter your email address"
-          onChangeText={(text) => handleUserName(text)}/>
-        <TextInput style={{
+        }}>
+          <Ionicons name={'ios-mail'} size={25} color={'#e28830'} />
+          <TextInput style={{
+            width: '75%',
+            paddingBottom: 10,
+            borderBottomWidth: 1,
+            borderBottomColor: '#a9a9a9',
+            marginLeft: 15
+          }} placeholder="Enter your email address"
+            onChangeText={(text) => handleUserName(text)}/>
+        </View>
+        <View style={{
+          flexDirection: 'row',
           marginTop: 40,
-          width: '75%',
-          paddingBottom: 10,
-          borderBottomWidth: 1,
-          borderBottomColor: '#f2f2f2'
-        }} placeholder="Enter your password"
-          onChangeText={(text) => handlePassword(text)}
-          secureTextEntry={true} />
+        }}>
+          <Ionicons name={'ios-key'} size={25} color={'#e28830'} />
+          <TextInput style={{
+            width: '75%',
+            paddingBottom: 10,
+            borderBottomWidth: 1,
+            borderBottomColor: '#a9a9a9',
+            marginLeft: 15
+          }} placeholder="Enter your password"
+            onChangeText={(text) => handlePassword(text)}
+            secureTextEntry={true} />
+        </View>
         <View style={{
           flexDirection: 'row'
         }}>

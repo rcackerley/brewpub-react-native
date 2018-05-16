@@ -47,7 +47,7 @@ class BookCard extends React.Component {
                   color: '#362c1e',
                   marginBottom: 10
                 }}>by {book.author}</Text>
-                <BottleRatings id={book["pairings.id"]} reviews={book.reviews} stars={book.stars} orange={'orange'} token={token} />
+                <BottleRatings id={book["pairings.id"]} reviews={book.reviews} stars={book.stars} orange={'orange'} />
                 <Text style={{
                   fontFamily: 'quicksand-regular',
                   fontSize: 12,

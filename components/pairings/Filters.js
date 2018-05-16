@@ -31,7 +31,6 @@ let Filters = ({books, setVisibleBooks}) => {
             key={i}
             onPress={event => {
             let filteredBooks = books.filter(book => book.genre === buttonText);
-            console.log(books);
             setVisibleBooks(filteredBooks)
             }}
             transparent={true}><Text style={{
