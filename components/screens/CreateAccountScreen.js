@@ -5,7 +5,7 @@ import CreateAccount from '../account/CreateAccount';
 class CreateAccountScreen extends React.Component {
 
   static navigationOptions = {
-    title: 'Create Account',
+    headerTitle: 'Create Account',
   };
 
   render() {

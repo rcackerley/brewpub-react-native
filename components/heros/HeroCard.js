@@ -4,13 +4,14 @@ import { LinearGradient } from 'expo';
 import {APIHost} from '../../environment/config';
 import BottleRatings from '../utility/Ratings';
 import {Button} from 'native-base';
+import {withNavigation} from 'react-navigation';
 
 let colorStyles = {
   wind: ['#42593a', '#4b5f3c', '#747b43'],
   botany: ['#8e3611','#b14b18','#d55f1f'],
   air: ['#454859','#687088','#8997b5']
 }
-let HeroCard = ({item}) =>
+let HeroCard = ({item, navigation}) =>
   <View>
     <LinearGradient style={{
       width: '100%',
@@ -53,13 +54,16 @@ let HeroCard = ({item}) =>
             marginBottom: 10,
             width: 220
           }}>{item.description}</Text>
-        <Button small style={{
-          width: 120,
-          marginTop: 5,
-          backgroundColor: "white",
-          marginRight: 10,
-          justifyContent: 'center'
-        }}>
+        <Button
+          onPress={event => navigation.navigate('Pairing', item)}
+          small style={{
+            width: 120,
+            marginTop: 5,
+            backgroundColor: "white",
+            marginRight: 10,
+            justifyContent: 'center'
+          }}
+        >
           <Text style={{
             fontSize: 15,
             color: '#362c1e',
@@ -69,4 +73,4 @@ let HeroCard = ({item}) =>
     </LinearGradient>
   </View>
 
-export default HeroCard;
+export default withNavigation(HeroCard);

@@ -4,7 +4,7 @@ import {Provider} from 'react-redux';
 import store from './store/index';
 import {StatusBar, AsyncStorage, YellowBox} from 'react-native';
 import { Font } from 'expo';
-import './ReactotronConfig'
+// import './ReactotronConfig'
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated'])
 StatusBar.setBarStyle('light-content', true);
 
