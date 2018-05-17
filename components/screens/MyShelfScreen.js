@@ -8,6 +8,7 @@ import BookShelfItem from '../account/BookShelfItem';
 class MyShelfScreen extends React.Component {
   static navigationOptions = {
     title: 'My Bookshelf & Bar Cart',
+    headerBackTitle: null
   };
 
   componentDidMount() {

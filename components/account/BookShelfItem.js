@@ -1,8 +1,10 @@
 import React from 'react';
-import {View, Image} from 'react-native';
+import {View, Image, TouchableOpacity} from 'react-native';
 import {APIHost} from '../../environment/config';
+import {withNavigation} from 'react-navigation';
 
-let BookShelfItem = ({item}) =>
+let BookShelfItem = ({item, navigation}) =>
+  <TouchableOpacity onPress={event => navigation.navigate('Pairing', item)}>
   <View style={{
     flexDirection: 'row',
     justifyContent: 'center',
@@ -10,15 +12,16 @@ let BookShelfItem = ({item}) =>
     marginLeft: 10,
     alignItems: 'flex-end'
   }}>
-    <Image style={{
-      width: 100,
-      height: 157
-    }}source={{uri: APIHost + '/' + item.image}} />
-    <Image style={{
-      width: 25,
-      height: 100,
-      left: -15
-    }} source={{uri: APIHost + '/' + item.icon}} />
+      <Image style={{
+        width: 100,
+        height: 157
+      }}source={{uri: APIHost + '/' + item.image}} />
+      <Image style={{
+        width: 25,
+        height: 100,
+        left: -15
+      }} source={{uri: APIHost + '/' + item.icon}} />
   </View>
+  </TouchableOpacity>
 
-export default BookShelfItem;
+export default withNavigation(BookShelfItem);

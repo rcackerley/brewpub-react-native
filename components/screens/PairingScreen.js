@@ -25,7 +25,7 @@ class PairingScreen extends React.Component {
           alignItems: 'center',
           marginBottom: 0,
           paddingLeft: 15,
-        }} colors={colorStyles[item.class]}>
+        }} colors={item.class ? colorStyles[item.class] : ['#c76b20', '#dd8336']}>
         <View style={{
           flexDirection: 'row'
         }}>
