@@ -48,8 +48,3 @@
 
 ---
 
-## License
-
-[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
-
-- **[MIT license](https://github.com/jamesnmcdowell/griddle/blob/master/LICENSE)**
