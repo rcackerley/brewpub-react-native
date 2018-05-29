@@ -3,14 +3,14 @@
 > Brewpub is an application where users can see curated pairings of beer and books. Users can rate pairings and seee featured pairings.
 <br>
 
-![brewpub](https://user-images.githubusercontent.com/20142674/39817286-ba82f696-536b-11e8-9680-121e42184723.png)
+![brewpub](https://user-images.githubusercontent.com/20142674/40683235-f3f54d20-635b-11e8-8801-dca2985d56cc.jpg)
 ---
 
 ## Table of Contents
 - [Demo](#demo)
 - [Features](#features)
 - [Libraries/APIs](#external)
-- [Todos](#todos)
+- [To-dos](#todos)
 
 ---
 
@@ -28,8 +28,8 @@
 
 ## External
 > Libraries and APIs used within the application
-* [React](https://reactjs.org/)
-* [React Router](https://github.com/ReactTraining/react-router)
+* [React Native](https://facebook.github.io/react-native/)
+* [React Native Star Ratings]https://github.com/djchie/react-native-star-rating)
 * [Redux](https://redux.js.org/)
 * [Node](https://nodejs.org/)
 * [JSON Web Token (JWT)](https://jwt.io/)
@@ -37,7 +37,7 @@
 * [Bcrypt](https://www.npmjs.com/package/bcrypt)
 
 
-## Todos/ in progress
+## To-dos/ in progress
 * Search for pairings via books, beers, and users
 * Add following user feature
 * Add intelligence to pairing recommendations
